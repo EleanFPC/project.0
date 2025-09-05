@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ecommerce</title>
+</head>
+<body>
+  <h1>Categorías</h1>
+  <ul>
+    <% categories.forEach(function(cat){ %>
+      <li><a href="/products?categoryId=<%= cat.id %>"><%= cat.name %></a></li>
+    <% }) %>
+  </ul>
+  <h2>Agregar categoría</h2>
+  <form action="/categories" method="post">
+    <input name="name" placeholder="Nombre de categoría" />
+    <button type="submit">Crear</button>
+  </form>
+</body>
+</html>

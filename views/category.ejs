@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= category ? category.name : 'Productos' %></title>
+</head>
+<body>
+  <h1><%= category ? category.name : 'Productos' %></h1>
+  <ul>
+    <% products.forEach(function(prod){ %>
+      <li><%= prod.name %> - USD <%= prod.priceUSD.toFixed(2) %> / NIO <%= prod.priceNIO.toFixed(2) %></li>
+    <% }) %>
+  </ul>
+  <h2>Agregar producto</h2>
+  <form action="/products" method="post">
+    <input name="name" placeholder="Nombre" />
+    <input name="priceUSD" placeholder="Precio USD" type="number" step="0.01" />
+    <input type="hidden" name="categoryId" value="<%= category ? category.id : '' %>" />
+    <button type="submit">Crear</button>
+  </form>
+  <p><a href="/">Volver a categorías</a></p>
+</body>
+</html>
